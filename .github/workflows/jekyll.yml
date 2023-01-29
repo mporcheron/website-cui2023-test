@@ -37,9 +37,13 @@ jobs:
         with:
           server: ${{ secrets.FTP_HOST }}
           port: ${{ secrets.FTP_USERNAME }}
-          protocol: ${{ secrets.FTP_PROTOCOL }}
           local-dir: ./_site/
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          exclude: ${{ secrets.FTP_EXCLUDE }}
+          dry-run: true
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.DS_Store
 
